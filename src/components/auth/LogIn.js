@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import FormErrors from "../FormErrors";
 import Validate from "../utility/FormValidation";
-import FacebookButton from "../FacebookButton";
 import { Auth } from "aws-amplify";
 
 import { withOAuth } from "aws-amplify-react";
@@ -25,11 +24,6 @@ class LogIn extends Component {
         blankfield: false
       }
     });
-  };
-
-  handleFbLogin = () => {
-    this.props.auth.setAuthStatus(true);
-    this.props.history.push("/");
   };
 
   getCurrentUser = () => {
@@ -88,9 +82,6 @@ class LogIn extends Component {
       <section className="section auth">
         <div className="container">
           <h1>Log in</h1>
-          <hr />
-          <FacebookButton onLogin={this.handleFbLogin} />
-          <hr />
           <FormErrors formerrors={this.state.errors} />
           <form onSubmit={this.handleSubmit}>
             <div className="field">
