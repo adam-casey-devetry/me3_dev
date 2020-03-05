@@ -3,8 +3,8 @@
     "invokeUrl": "https://q7sm9u39tl.execute-api.us-east-2.amazonaws.com/dev"
   },
   "cognito": {
-    "REGION": "us-east-2",
-    "USER_POOL_ID": "us-east-2_U42nLRyVn",
+    "REGION": "us-west-2",
+    "USER_POOL_ID": "us-west-2_3MsodJcyW",
     "APP_CLIENT_ID": "6dkr4dgfovsgbckepo0rbhn9ub",
     "IDENTITY_POOL_ID": "us-east-2:a62b5357-7608-4bc8-9671-748194c3e329"
   },
