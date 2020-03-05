@@ -1,0 +1,57 @@
+{
+    "providers": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-me3cogauth-local-102511-authRole",
+            "UnauthRoleArn": "arn:aws:iam::100026411130:role/amplify-me3cogauth-local-102511-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::100026411130:role/amplify-me3cogauth-local-102511-authRole",
+            "Region": "us-east-2",
+            "DeploymentBucketName": "amplify-me3cogauth-local-102511-deployment",
+            "UnauthRoleName": "amplify-me3cogauth-local-102511-unauthRole",
+            "StackName": "amplify-me3cogauth-local-102511",
+            "StackId": "arn:aws:cloudformation:us-east-2:100026411130:stack/amplify-me3cogauth-local-102511/9de56180-572a-11ea-b409-064ea827a74e",
+            "AmplifyAppId": "d3nrkqr3mrkl6m"
+        }
+    },
+    "auth": {
+        "me3cogauth213d8a8d": {
+            "service": "Cognito",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": [],
+            "providerMetadata": {
+                "s3TemplateURL": "https://s3.amazonaws.com/amplify-me3cogauth-local-102511-deployment/amplify-cfn-templates/auth/me3cogauth213d8a8d-cloudformation-template.yml",
+                "logicalId": "authme3cogauth213d8a8d"
+            },
+            "lastPushTimeStamp": "2020-02-26T17:11:43.905Z",
+            "output": {
+                "AppClientSecret": "5dospo56vhckssv8f1ak0heenkcbhuijr9407284lobkjji7b71",
+                "UserPoolId": "us-east-2_O64QKNEJZ",
+                "AppClientIDWeb": "1bddgap21vn7bdkqfpqjhhpj81",
+                "AppClientID": "72c7knuak2864a6oiro6148puj",
+                "HostedUIDomain": "me3cogauth213d8a8d-213d8a8d-local",
+                "IdentityPoolId": "us-east-2:16d2876a-7332-446c-8ef8-a2ac7ddcb878",
+                "IdentityPoolName": "me3cogauth213d8a8d_identitypool_213d8a8d__local",
+                "OAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://localhost:3000/\"],\"LogoutURLs\":[\"https://localhost:3000/\"]}",
+                "UserPoolName": "me3cogauth213d8a8d_userpool_213d8a8d"
+            },
+            "lastPushDirHash": "e6+anhPPc7gbUTSbTLhdSeDqkQ4="
+        }
+    },
+    "hosting": {
+        "S3AndCloudFront": {
+            "service": "S3AndCloudFront",
+            "providerPlugin": "awscloudformation",
+            "providerMetadata": {
+                "s3TemplateURL": "https://s3.amazonaws.com/amplify-me3cogauth-local-102511-deployment/amplify-cfn-templates/hosting/template.json",
+                "logicalId": "hostingS3AndCloudFront"
+            },
+            "lastPushTimeStamp": "2020-02-26T17:11:43.907Z",
+            "output": {
+                "S3BucketSecureURL": "https://me3cogauth-20200224111143-hostingbucket-local.s3.amazonaws.com",
+                "WebsiteURL": "http://me3cogauth-20200224111143-hostingbucket-local.s3-website.us-east-2.amazonaws.com",
+                "Region": "us-east-2",
+                "HostingBucketName": "me3cogauth-20200224111143-hostingbucket-local"
+            },
+            "lastPushDirHash": "J3iTxcA1CV7axKhdMHoJQCR2JIY="
+        }
+    }
+}
