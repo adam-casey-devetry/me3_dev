@@ -11,7 +11,6 @@ export default function Home() {
           <span className="tag is-primary">Play game</span>
         </p>
       </div>
-      <HomeContent />
     </Fragment>
   );
 }

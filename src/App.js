@@ -3,8 +3,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
-import Products from "./components/Products";
-import ProductAdmin from "./components/ProductAdmin";
 import LogIn from "./components/auth/LogIn";
 import Register from "./components/auth/Register";
 import ForgotPassword from "./components/auth/ForgotPassword";
@@ -86,16 +84,6 @@ class App extends Component {
                   exact
                   path="/"
                   render={props => <Home {...props} auth={authProps} />}
-                />
-                <Route
-                  exact
-                  path="/products"
-                  render={props => <Products {...props} auth={authProps} />}
-                />
-                <Route
-                  exact
-                  path="/admin"
-                  render={props => <ProductAdmin {...props} auth={authProps} />}
                 />
                 <Route
                   exact
