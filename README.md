@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## Me3 Testing app
 
 This is a starter ReactJS UI using the ['Create a Serverless App'](https://www.youtube.com/watch?v=2SaO1Pvah2k) tutorial series.
@@ -32,3 +33,7 @@ The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+=======
+# me3_dev
+Repo for converting everything to what the me3/ASU project will be
+>>>>>>> b7e61d7b9c0cf03681e761939636426bf4900a96
