@@ -19,10 +19,10 @@ export default class Navbar extends Component {
         <div className="navbar-brand">
           <a className="navbar-item" href="/">
             <img
-              src="hexal-logo.png"
+              src="ASU full logo.png"
               width="112"
               height="28"
-              alt="hexal logo"
+              alt="ASU logo"
             />
           </a>
         </div>
@@ -30,12 +30,6 @@ export default class Navbar extends Component {
           <div className="navbar-start">
             <a href="/" className="navbar-item">
               Home
-            </a>
-            <a href="/products" className="navbar-item">
-              Products
-            </a>
-            <a href="/admin" className="navbar-item">
-              Admin
             </a>
           </div>
 

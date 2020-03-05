@@ -6,9 +6,7 @@ export default function Home() {
     <Fragment>
       <Hero />
       <div className="box cta">
-        <p className="has-text-centered">
-          <span className="tag is-primary">Play game</span>
-        </p>
+        <p className="has-text-centered"></p>
       </div>
     </Fragment>
   );
