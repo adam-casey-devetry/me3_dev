@@ -4,9 +4,9 @@
   },
   "cognito": {
     "REGION": "us-west-2",
-    "USER_POOL_ID": "us-west-2_3MsodJcyW",
-    "APP_CLIENT_ID": "6dkr4dgfovsgbckepo0rbhn9ub",
-    "IDENTITY_POOL_ID": "us-east-2:a62b5357-7608-4bc8-9671-748194c3e329"
+    "USER_POOL_ID": "us-west-2_hC4oM4jSX",
+    "APP_CLIENT_ID": "3ld48pakundfph5kbtrkgf61no",
+    "IDENTITY_POOL_ID": "us-west-2:b8f6c2d9-9756-44f4-93b4-0313d52f1f09"
   },
   "social": {
     "FB": "484177372522431"
