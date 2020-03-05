@@ -51,13 +51,15 @@ export default class Navbar extends Component {
                 )}
                 {/* If user is logged in, show the Log Out button */}
                 {this.props.auth.isAuthenticated && (
-                  <a
-                    href="/"
-                    onClick={this.handleLogOut}
-                    className="button is-primary"
-                  >
-                    Log Out
-                  </a>
+                  <div>
+                    <a
+                      href="/"
+                      onClick={this.handleLogOut}
+                      className="button is-primary"
+                    >
+                      Log Out
+                    </a>
+                  </div>
                 )}
               </div>
             </div>
