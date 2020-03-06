@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
-import IframePage from "./Hero";
+import IframePage from "./IframePage";
+import "../index.css";
 
 export default function Home() {
   return (

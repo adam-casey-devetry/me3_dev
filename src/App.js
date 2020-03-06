@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
@@ -11,21 +11,25 @@ import ChangePassword from "./components/auth/ChangePassword";
 import ChangePasswordConfirm from "./components/auth/ChangePasswordConfirm";
 import Welcome from "./components/auth/Welcome";
 import Footer from "./components/Footer";
+//eslint-disable-next-line
 import Amplify, { Auth } from "aws-amplify";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
-//eslint-disable-next-line
-import config from "./config";
+import { MDBContainer } from "mdbreact";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import "bootstrap-css-only/css/bootstrap.min.css";
+import "mdbreact/dist/css/mdb.css";
+
 library.add(faEdit);
 
-Amplify.configure({
+/* Amplify.configure({
   Auth: {
     domain: "me3.auth.us-east-2.amazoncognito.com/",
     redirectSignIn: "http://localhost:3000/",
     redirectSignOut: "http://localhost:3000/",
     responsetype: "token"
   }
-});
+}); */
 
 class App extends Component {
   state = {
@@ -70,65 +74,72 @@ class App extends Component {
     // Use special render syntax to pass properties to each component
     return (
       !this.state.isAuthenticating && (
-        <div className="App">
-          <Router>
-            <div>
-              <Navbar auth={authProps} />
-              <Switch>
-                {/* Pass in default props along with user created props */}
-                <Route
-                  exact
-                  path="/"
-                  render={props => <Home {...props} auth={authProps} />}
-                />
-                <Route
-                  exact
-                  path="/login"
-                  render={props => <LogIn {...props} auth={authProps} />}
-                />
-                <Route
-                  exact
-                  path="/register"
-                  render={props => <Register {...props} auth={authProps} />}
-                />
-                <Route
-                  exact
-                  path="/forgotpassword"
-                  render={props => (
-                    <ForgotPassword {...props} auth={authProps} />
-                  )}
-                />
-                <Route
-                  exact
-                  path="/forgotpasswordverification"
-                  render={props => (
-                    <ForgotPasswordVerification {...props} auth={authProps} />
-                  )}
-                />
-                <Route
-                  exact
-                  path="/changepassword"
-                  render={props => (
-                    <ChangePassword {...props} auth={authProps} />
-                  )}
-                />
-                <Route
-                  exact
-                  path="/changepasswordconfirmation"
-                  render={props => (
-                    <ChangePasswordConfirm {...props} auth={authProps} />
-                  )}
-                />
-                <Route
-                  exact
-                  path="/welcome"
-                  render={props => <Welcome {...props} auth={authProps} />}
-                />
-              </Switch>
-              <Footer />
+        <Fragment>
+          <MDBContainer>
+            <div className="App">
+              <Router>
+                <div>
+                  <Navbar auth={authProps} />
+                  <Switch>
+                    {/* Pass in default props along with user created props */}
+                    <Route
+                      exact
+                      path="/"
+                      render={props => <Home {...props} auth={authProps} />}
+                    />
+                    <Route
+                      exact
+                      path="/login"
+                      render={props => <LogIn {...props} auth={authProps} />}
+                    />
+                    <Route
+                      exact
+                      path="/register"
+                      render={props => <Register {...props} auth={authProps} />}
+                    />
+                    <Route
+                      exact
+                      path="/forgotpassword"
+                      render={props => (
+                        <ForgotPassword {...props} auth={authProps} />
+                      )}
+                    />
+                    <Route
+                      exact
+                      path="/forgotpasswordverification"
+                      render={props => (
+                        <ForgotPasswordVerification
+                          {...props}
+                          auth={authProps}
+                        />
+                      )}
+                    />
+                    <Route
+                      exact
+                      path="/changepassword"
+                      render={props => (
+                        <ChangePassword {...props} auth={authProps} />
+                      )}
+                    />
+                    <Route
+                      exact
+                      path="/changepasswordconfirmation"
+                      render={props => (
+                        <ChangePasswordConfirm {...props} auth={authProps} />
+                      )}
+                    />
+                    <Route
+                      exact
+                      path="/welcome"
+                      render={props => <Welcome {...props} auth={authProps} />}
+                    />
+                  </Switch>
+                  <Footer />
+                </div>
+              </Router>
             </div>
-          </Router>
-        </div>
+          </MDBContainer>
+        </Fragment>
       )
     );
   }
