@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {
   MDBBtn,
+  MDBModalHeader,
   MDBModal,
   MDBModalBody,
   MDBModalFooter,
@@ -8,6 +9,7 @@ import {
   MDBIcon,
   MDBIframe
 } from "mdbreact";
+import "./IframePage.css";
 
 class IframePage extends Component {
   state = {
@@ -30,8 +32,12 @@ class IframePage extends Component {
           isOpen={this.state.modal11}
           toggle={this.toggle(11)}
         >
-          <MDBModalBody className="mb-0 p-0">
+          <MDBModalHeader className="modal-header">
+            Welcome to ASU!
+          </MDBModalHeader>
+          <MDBModalBody className="modal-body mb-0 p-0">
             <MDBIframe
+              className="modal-frame"
               title="This is a unique title"
               src="https://player.vimeo.com/video/268111200?autoplay=1&amp;loop=1&amp;autopause=0&amp;background=1"
             />

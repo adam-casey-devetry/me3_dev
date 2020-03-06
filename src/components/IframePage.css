@@ -1,0 +1,20 @@
+.modal-content {
+    position: absolute;
+
+}
+
+.modal-dialog {
+    position: fixed;
+}
+
+.modal-frame {
+    padding: 0
+}
+
+.modal-header {
+    text-align: right
+}
+
+.modal-body {
+    font-weight: 300;
+}
