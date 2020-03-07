@@ -5,7 +5,7 @@ import HomePage_5 from "../ASU Photos/HomePage_5.jpg";
 import HomePage_6 from "../ASU Photos/HomePage_6.jpg";
 import HomePage_7 from "../ASU Photos/HomePage_7.jpg";
 
-export const Photos = [
+export const photoList = [
   {
     src: HomePage_1,
     width: 4,
