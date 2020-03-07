@@ -42,3 +42,7 @@ body {
 .buttons {
   margin-left: 1em;
 }
+
+.button {
+  background-color: #FFC72C;
+}

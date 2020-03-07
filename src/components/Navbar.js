@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Auth } from "aws-amplify";
 import ASUFullLogo from "../ASU Photos/ASU full logo.png";
+import "../App.css";
 
 export default class Navbar extends Component {
   handleLogOut = async event => {
@@ -37,10 +38,18 @@ export default class Navbar extends Component {
               <div className="buttons">
                 {!this.props.auth.isAuthenticated && (
                   <div>
-                    <a href="/register" className="button is-primary">
+                    <a
+                      href="/register"
+                      className="button is-primary"
+                      style={{ backgroundColor: "#8E0C3A" }}
+                    >
                       <strong>Register</strong>
                     </a>
-                    <a href="/login" className="button is-light">
+                    <a
+                      href="/login"
+                      className="button is-light"
+                      style={{ backgroundColor: "#FFC72C" }}
+                    >
                       Log in
                     </a>
                   </div>

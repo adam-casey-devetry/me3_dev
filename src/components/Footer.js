@@ -4,10 +4,7 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="content has-text-centered">
-        <p>
-          Me3 2020. The source code is licensed MIT. The website content is
-          licensed CC BY NC SA 4.0.
-        </p>
+        <p>Me3 2020. Courtesy of Arizona State University</p>
       </div>
     </footer>
   );

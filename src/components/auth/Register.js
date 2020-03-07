@@ -144,7 +144,12 @@ class Register extends Component {
             </div>
             <div className="field">
               <p className="control">
-                <button className="button is-success">Register</button>
+                <button
+                  className="button is-success"
+                  style={{ backgroundColor: "#8E0C3A", borderColor: "#FFC72C" }}
+                >
+                  Register
+                </button>
               </p>
             </div>
           </form>

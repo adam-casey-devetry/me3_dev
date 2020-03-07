@@ -116,7 +116,12 @@ class LogIn extends Component {
             </div>
             <div className="field">
               <p className="control">
-                <button className="button is-success">Login</button>
+                <button
+                  className="button is-success"
+                  style={{ backgroundColor: "#8E0C3A", borderColor: "#FFC72C" }}
+                >
+                  Login
+                </button>
               </p>
             </div>
           </form>
