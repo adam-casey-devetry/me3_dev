@@ -11,6 +11,7 @@ import ChangePassword from "./components/auth/ChangePassword";
 import ChangePasswordConfirm from "./components/auth/ChangePasswordConfirm";
 import Welcome from "./components/auth/Welcome";
 import Footer from "./components/Footer";
+import Layout from "./components/Layout";
 import { Auth } from "aws-amplify";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
@@ -69,57 +70,62 @@ class App extends Component {
             <Router>
               <div>
                 <Navbar auth={authProps} />
-                <Switch>
-                  {/* Pass in default props along with user created props */}
-                  <Route
-                    exact
-                    path="/"
-                    render={props => <Home {...props} auth={authProps} />}
-                  />
-                  <Route
-                    exact
-                    path="/login"
-                    render={props => <LogIn {...props} auth={authProps} />}
-                  />
-                  <Route
-                    exact
-                    path="/register"
-                    render={props => <Register {...props} auth={authProps} />}
-                  />
-                  <Route
-                    exact
-                    path="/forgotpassword"
-                    render={props => (
-                      <ForgotPassword {...props} auth={authProps} />
-                    )}
-                  />
-                  <Route
-                    exact
-                    path="/forgotpasswordverification"
-                    render={props => (
-                      <ForgotPasswordVerification {...props} auth={authProps} />
-                    )}
-                  />
-                  <Route
-                    exact
-                    path="/changepassword"
-                    render={props => (
-                      <ChangePassword {...props} auth={authProps} />
-                    )}
-                  />
-                  <Route
-                    exact
-                    path="/changepasswordconfirmation"
-                    render={props => (
-                      <ChangePasswordConfirm {...props} auth={authProps} />
-                    )}
-                  />
-                  <Route
-                    exact
-                    path="/welcome"
-                    render={props => <Welcome {...props} auth={authProps} />}
-                  />
-                </Switch>
+                <Layout>
+                  <Switch>
+                    {/* Pass in default props along with user created props */}
+                    <Route
+                      exact
+                      path="/"
+                      render={props => <Home {...props} auth={authProps} />}
+                    />
+                    <Route
+                      exact
+                      path="/login"
+                      render={props => <LogIn {...props} auth={authProps} />}
+                    />
+                    <Route
+                      exact
+                      path="/register"
+                      render={props => <Register {...props} auth={authProps} />}
+                    />
+                    <Route
+                      exact
+                      path="/forgotpassword"
+                      render={props => (
+                        <ForgotPassword {...props} auth={authProps} />
+                      )}
+                    />
+                    <Route
+                      exact
+                      path="/forgotpasswordverification"
+                      render={props => (
+                        <ForgotPasswordVerification
+                          {...props}
+                          auth={authProps}
+                        />
+                      )}
+                    />
+                    <Route
+                      exact
+                      path="/changepassword"
+                      render={props => (
+                        <ChangePassword {...props} auth={authProps} />
+                      )}
+                    />
+                    <Route
+                      exact
+                      path="/changepasswordconfirmation"
+                      render={props => (
+                        <ChangePasswordConfirm {...props} auth={authProps} />
+                      )}
+                    />
+                    <Route
+                      exact
+                      path="/welcome"
+                      render={props => <Welcome {...props} auth={authProps} />}
+                    />
+                  </Switch>
+                </Layout>
                 <Footer />
               </div>
             </Router>

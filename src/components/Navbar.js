@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Auth } from "aws-amplify";
+import ASUFullLogo from "../ASU Photos/ASU full logo.png";
 
 export default class Navbar extends Component {
   handleLogOut = async event => {
@@ -18,12 +19,7 @@ export default class Navbar extends Component {
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
           <a className="navbar-item" href="/">
-            <img
-              src="ASU full logo.png"
-              width="112"
-              height="28"
-              alt="ASU logo"
-            />
+            <img src={ASUFullLogo} width="112" height="28" alt="ASU logo" />
           </a>
         </div>
         <div id="navbarBasicExample" className="navbar-menu">
