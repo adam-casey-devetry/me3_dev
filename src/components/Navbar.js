@@ -61,6 +61,7 @@ export default class Navbar extends Component {
                       href="/"
                       onClick={this.handleLogOut}
                       className="button is-primary"
+                      style={{ backgroundColor: "#8E0C3A" }}
                     >
                       Log Out
                     </a>
