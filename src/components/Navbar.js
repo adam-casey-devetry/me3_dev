@@ -21,7 +21,7 @@ export default class Navbar extends Component {
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
           <a className="navbar-item" href="/">
-            <img src={ASUFullLogo} width="112" height="28" alt="ASU logo" />
+            <img src={ASUFullLogo} width="140" height="28" alt="ASU logo" />
           </a>
         </div>
         <div className="navbar-brand">
