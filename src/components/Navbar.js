@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Auth } from "aws-amplify";
 import ASUFullLogo from "../ASU Photos/ASU full logo.png";
+import Me3BWLogo from "../Logos/Me3_Logo_BW.png";
 import "../App.css";
 
 export default class Navbar extends Component {
@@ -23,13 +24,23 @@ export default class Navbar extends Component {
             <img src={ASUFullLogo} width="112" height="28" alt="ASU logo" />
           </a>
         </div>
+        <div className="navbar-brand">
+          <a className="navbar-item" href="/">
+            <img
+              src={Me3BWLogo}
+              width="35"
+              height="45"
+              alt="Me3 logo"
+              style={{ paddingLeft: 0 }}
+            />
+          </a>
+        </div>
         <div id="navbarBasicExample" className="navbar-menu">
           <div className="navbar-start">
             <a href="/" className="navbar-item">
               Home
             </a>
           </div>
-
           <div className="navbar-end">
             <div className="navbar-item">
               {this.props.auth.isAuthenticated && this.props.auth.user && (
