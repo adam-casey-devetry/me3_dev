@@ -19,6 +19,14 @@ Amplify.configure({
     redirectSignIn: "http://localhost:3000/",
     redirectSignOut: "http://localhost:3000/",
     responsetype: "token"
+  },
+  API: {
+    endpoints: [
+      {
+        name: "adamTestAPI_West",
+        endpoint: "https://7p22l6lnfj.execute-api.us-west-2.amazonaws.com/dev"
+      }
+    ]
   }
 });
 
