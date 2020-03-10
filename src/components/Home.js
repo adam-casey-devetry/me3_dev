@@ -13,34 +13,16 @@ export default function Home(props) {
     let myInit = {
       // OPTIONAL
       headers: {
-<<<<<<< Updated upstream
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*"
-=======
         "Content-Type": "application/json"
->>>>>>> Stashed changes
       }, // OPTIONAL
-      response: true, // OPTIONAL (return the entire Axios response object instead of only response.data)
-      queryStringParameters: {
+      response: true // OPTIONAL (return the entire Axios response object instead of only response.data)
+      /*      queryStringParameters: {
         // OPTIONAL
         id: "2"
-      }
+      } */
     };
     API.get(apiName, path, myInit)
       .then(response => {
-<<<<<<< Updated upstream
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        response.setHeader("Access-Control-Allow-Credentials", "true");
-        response.setHeader(
-          "Access-Control-Allow-Methods",
-          "GET,HEAD,OPTIONS,POST,PUT"
-        );
-        response.setHeader(
-          "Access-Control-Allow-Headers",
-          "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"
-        );
-=======
->>>>>>> Stashed changes
         console.log("GET response: " + JSON.stringify(response));
       })
       .catch(error => {
