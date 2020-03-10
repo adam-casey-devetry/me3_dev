@@ -1,25 +1,11 @@
 import React, { Fragment } from "react";
 import PhotoGrid from "./PhotoGrid";
-//eslint-disable-next-line
-import Amplify, { API } from "aws-amplify";
-//eslint-disable-next-line
-import awsconfig from "../aws-exports";
+
+import { API } from "aws-amplify";
+
 import "../index.css";
 
 export default function Home(props) {
-  // Configure Amplify
-  //API.configure(awsconfig);
-  /*   Amplify.configure({
-    API: {
-      endpoints: [
-        {
-          name: "adamTestAPI_West",
-          endpoint: "https://7p22l6lnfj.execute-api.us-west-2.amazonaws.com/dev"
-        }
-      ]
-    }
-  }); */
-
   if (props.auth.isAuthenticated) {
     console.log("User is authenticated");
     let apiName = "adamTestAPI_West";
@@ -27,8 +13,12 @@ export default function Home(props) {
     let myInit = {
       // OPTIONAL
       headers: {
+<<<<<<< Updated upstream
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*"
+=======
+        "Content-Type": "application/json"
+>>>>>>> Stashed changes
       }, // OPTIONAL
       response: true, // OPTIONAL (return the entire Axios response object instead of only response.data)
       queryStringParameters: {
@@ -38,6 +28,7 @@ export default function Home(props) {
     };
     API.get(apiName, path, myInit)
       .then(response => {
+<<<<<<< Updated upstream
         response.setHeader("Access-Control-Allow-Origin", "*");
         response.setHeader("Access-Control-Allow-Credentials", "true");
         response.setHeader(
@@ -48,6 +39,8 @@ export default function Home(props) {
           "Access-Control-Allow-Headers",
           "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"
         );
+=======
+>>>>>>> Stashed changes
         console.log("GET response: " + JSON.stringify(response));
       })
       .catch(error => {
