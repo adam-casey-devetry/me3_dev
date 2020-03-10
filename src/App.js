@@ -102,7 +102,6 @@ class App extends Component {
         />,
       ])
     } else {
-      console.log('logged out routes')
       routes = routes.concat([ // only visible if not logged in
         <Route
           exact
@@ -133,8 +132,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.routes.length)
-    console.log(this.routes[0].props)
     if (this.state.isAuthenticating) {
       return (
         <div className="loader">
