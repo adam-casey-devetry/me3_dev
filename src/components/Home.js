@@ -9,17 +9,13 @@ export default function Home(props) {
   if (props.auth.isAuthenticated) {
     console.log("User is authenticated");
     let apiName = "adamTestAPI_West";
-    let path = "/user/{id}";
+    let path = "/user/1";
     let myInit = {
       // OPTIONAL
       headers: {
         "Content-Type": "application/json"
       }, // OPTIONAL
       response: true // OPTIONAL (return the entire Axios response object instead of only response.data)
-      /*      queryStringParameters: {
-        // OPTIONAL
-        id: "2"
-      } */
     };
     API.get(apiName, path, myInit)
       .then(response => {

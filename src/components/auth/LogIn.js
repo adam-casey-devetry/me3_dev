@@ -59,12 +59,11 @@ class LogIn extends Component {
         }
       });
     }
-    /*     
-    Use this when you need to get the accesstoken, id token, and other data
+
+    // Use this when you need to get the accesstoken, id token, and other data
     Auth.currentSession()
       .then(data => console.log(data))
-      .catch(err => console.log(err)); 
-    */
+      .catch(err => console.log(err));
   };
 
   onInputChange = event => {
