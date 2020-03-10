@@ -71,10 +71,10 @@
 		"hostingS3AndCloudFront": {
 			"Type": "AWS::CloudFormation::Stack",
 			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/amplify-me3dev-westlocal-151444-deployment/amplify-cfn-templates/hosting/template.json",
+				"TemplateURL": "https://s3.amazonaws.com/amplify-me3dev-local-95448-deployment/amplify-cfn-templates/hosting/template.json",
 				"Parameters": {
-					"bucketName": "me3dev-20200309151915-hostingbucket",
-					"env": "westlocal"
+					"bucketName": "me3dev-20200310095728-hostingbucket",
+					"env": "local"
 				}
 			}
 		}

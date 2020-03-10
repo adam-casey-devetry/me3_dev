@@ -1,21 +1,33 @@
 {
-    "providers": {
-        "awscloudformation": {
-            "AuthRoleName": "amplify-me3dev-westlocal-151444-authRole",
-            "UnauthRoleArn": "arn:aws:iam::100026411130:role/amplify-me3dev-westlocal-151444-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::100026411130:role/amplify-me3dev-westlocal-151444-authRole",
-            "Region": "us-east-2",
-            "DeploymentBucketName": "amplify-me3dev-westlocal-151444-deployment",
-            "UnauthRoleName": "amplify-me3dev-westlocal-151444-unauthRole",
-            "StackName": "amplify-me3dev-westlocal-151444",
-            "StackId": "arn:aws:cloudformation:us-east-2:100026411130:stack/amplify-me3dev-westlocal-151444/01649660-624b-11ea-b778-0279c28b0d70",
-            "AmplifyAppId": "d1hq7ilz89jvl"
-        }
-    },
-    "hosting": {
-        "S3AndCloudFront": {
-            "service": "S3AndCloudFront",
-            "providerPlugin": "awscloudformation"
-        }
-    }
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "amplify-me3dev-local-95448-authRole",
+			"UnauthRoleArn": "arn:aws:iam::100026411130:role/amplify-me3dev-local-95448-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::100026411130:role/amplify-me3dev-local-95448-authRole",
+			"Region": "us-west-2",
+			"DeploymentBucketName": "amplify-me3dev-local-95448-deployment",
+			"UnauthRoleName": "amplify-me3dev-local-95448-unauthRole",
+			"StackName": "amplify-me3dev-local-95448",
+			"StackId": "arn:aws:cloudformation:us-west-2:100026411130:stack/amplify-me3dev-local-95448/791c59d0-62e7-11ea-b54e-0a90939a96ce",
+			"AmplifyAppId": "d2rqphh1ndswh0"
+		}
+	},
+	"hosting": {
+		"S3AndCloudFront": {
+			"service": "S3AndCloudFront",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-me3dev-local-95448-deployment/amplify-cfn-templates/hosting/template.json",
+				"logicalId": "hostingS3AndCloudFront"
+			},
+			"lastPushTimeStamp": "2020-03-10T15:59:14.881Z",
+			"output": {
+				"S3BucketSecureURL": "https://me3dev-20200310095728-hostingbucket-local.s3.amazonaws.com",
+				"WebsiteURL": "http://me3dev-20200310095728-hostingbucket-local.s3-website-us-west-2.amazonaws.com",
+				"Region": "us-west-2",
+				"HostingBucketName": "me3dev-20200310095728-hostingbucket-local"
+			},
+			"lastPushDirHash": "tK2n8CmMn2tJehjmSrJrctZ57Lc="
+		}
+	}
 }
