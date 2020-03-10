@@ -1,5 +1,5 @@
 {
-    "projectName": "me3_cog_auth",
+    "projectName": "me3_dev",
     "version": "3.0",
     "frontend": "javascript",
     "javascript": {
@@ -7,8 +7,8 @@
         "config": {
             "SourceDir": "src",
             "DistributionDir": "build",
-            "BuildCommand": "HTTPS=true npm run-script build",
-            "StartCommand": "HTTPS=true npm run-script start"
+            "BuildCommand": "npm run-script build",
+            "StartCommand": "npm run-script start"
         }
     },
     "providers": [
