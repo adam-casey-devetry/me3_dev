@@ -1,12 +1,24 @@
 import React, { Fragment } from "react";
 import PhotoGrid from "./PhotoGrid";
-import { API } from "aws-amplify";
+//eslint-disable-next-line
+import Amplify, { API } from "aws-amplify";
+//eslint-disable-next-line
 import awsconfig from "../aws-exports";
 import "../index.css";
 
 export default function Home(props) {
   // Configure Amplify
-  API.configure(awsconfig);
+  //API.configure(awsconfig);
+  /*   Amplify.configure({
+    API: {
+      endpoints: [
+        {
+          name: "adamTestAPI_West",
+          endpoint: "https://7p22l6lnfj.execute-api.us-west-2.amazonaws.com/dev"
+        }
+      ]
+    }
+  }); */
 
   if (props.auth.isAuthenticated) {
     console.log("User is authenticated");
@@ -26,12 +38,12 @@ export default function Home(props) {
     };
     API.get(apiName, path, myInit)
       .then(response => {
-        /*         response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Allow-Origin", "*");
         response.setHeader("Access-Control-Allow-Credentials", "true");
         response.setHeader(
           "Access-Control-Allow-Methods",
           "GET,HEAD,OPTIONS,POST,PUT"
-        ); */
+        );
         response.setHeader(
           "Access-Control-Allow-Headers",
           "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"
