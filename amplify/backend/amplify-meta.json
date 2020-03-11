@@ -20,7 +20,7 @@
                 "s3TemplateURL": "https://s3.amazonaws.com/amplify-me3dev-local-95448-deployment/amplify-cfn-templates/hosting/template.json",
                 "logicalId": "hostingS3AndCloudFront"
             },
-            "lastPushTimeStamp": "2020-03-10T17:35:28.649Z",
+            "lastPushTimeStamp": "2020-03-11T16:19:29.179Z",
             "output": {
                 "S3BucketSecureURL": "https://me3dev-20200310095728-hostingbucket-local.s3.amazonaws.com",
                 "WebsiteURL": "http://me3dev-20200310095728-hostingbucket-local.s3-website-us-west-2.amazonaws.com",
