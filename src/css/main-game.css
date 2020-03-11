@@ -7,11 +7,6 @@
     justify-content: center;
 }
 
-.picture-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
 
 .button-container {
     display: flex;
@@ -19,9 +14,11 @@
     margin-top: 50px;
 }
 
-
-
-/* img {
-    width: 200px;
-    height: 200px;
-} */
+.picture-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-evenly;
+    width: 90%;
+    margin: auto;
+}

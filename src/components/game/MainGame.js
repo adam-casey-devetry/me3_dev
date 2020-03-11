@@ -21,6 +21,7 @@ export default class MainGame extends React.Component {
         { 'img': guitar },
         { 'img': leadership }
       ],
+      isLoading: true,
       results: {} // todo: populate with selections
     };
     this.init = this.init.bind(this);
@@ -41,19 +42,23 @@ export default class MainGame extends React.Component {
           console.log("GET response: " + JSON.stringify(response));
           if (response.data && response.data.pictures) {
             this.setState({
-              pictures: response.data.pictures
+              pictures: response.data.pictures,
+              isLoading: false
             });
           }
         })
         .catch(error => {
-          console.log("Error: " + error);
+          console.log("Error: " + error); //todo: error state
+          this.setState({
+            isLoading: false
+          });
         });
     } else {
       console.log("User is NOT authenticated");
     }
   }
 
-  makeChoices() {
+  makeChoices() { //todo: refactor with game functionality
     const { pictures } = this.state;
     const src1 = pictures[0].img;
     const src2 = pictures[1].img;
@@ -66,7 +71,7 @@ export default class MainGame extends React.Component {
   }
 
   saveResults() {
-    const { results } = this.state; //todo: presumably score algorithm needs to operate here
+    const { results } = this.state;
     const userId = this.props.auth.user.userId; //todo: confirm this param
     const path = `/users/${userId}`;
     const updateInit = {
@@ -74,7 +79,7 @@ export default class MainGame extends React.Component {
         "Content-Type": "application/json"
       }, // OPTIONAL
       response: true, // OPTIONAL (return the entire Axios response object instead of only response.data)
-      body: { //todo: confirm this param
+      body: { //todo: confirm this param, refactor with Aurora
         results: results
       }
     };
@@ -85,21 +90,29 @@ export default class MainGame extends React.Component {
       })
       .catch(error => {
         console.log("Error: " + error);
-        this.props.history.push("/results"); //todo: placeholder
+        this.props.history.push("/results"); //todo: implement error state, this is placeholder
       });
   }
 
-  submitChoices() {
+  submitChoices() { // shorcut until game implemented
     return (
       <div className="button-container">
       <button className="submit" onClick={this.saveResults}>
-        <p>See Results</p>
+        <p>(See Results)</p>
       </button>
       </div>
     )
   }
 
   render() {
+    if (this.state.isLoading) {
+      return ( // todo
+        <div>
+          <div className='mySpinner' />
+          <p>Loading...</p>
+        </div>
+      );
+    }
     return (
       <div id='main-game'>
         <div className="header">

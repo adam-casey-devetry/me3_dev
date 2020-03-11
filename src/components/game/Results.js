@@ -18,12 +18,12 @@ export default class MainGame extends React.Component {
     super(props);
     this.state = {
       isLoading: true,
-      careerResults: [ // specific to User
+      careerResults: [ // specific to User, will be 25 total
         { 'name': 'Photographers', 'img': photography },
         { 'name': 'Set and Exhibit Design', 'img': setDesign },
         { 'name': 'Makeup Artists, Theatrical and Performance', 'img': makeup },
       ],
-      majors: [ // not tied to user
+      majors: [ // not tied to user, will fetch entire list
         { 'name': 'Journalism and Mass Communication' },
         { 'name': 'Sports Journalism' },
         { 'name': 'Art (Photography)' },
@@ -78,7 +78,7 @@ export default class MainGame extends React.Component {
         }
       })
       .catch(error => {
-        console.log('Error: ' + error);
+        console.log('Error: ' + error); //todo: error state
         this.setState({
           isLoading: false
         });
@@ -100,8 +100,8 @@ export default class MainGame extends React.Component {
 
   render() {
     if (this.state.isLoading) {
-      return (
-        <div className='loader'>
+      return ( // todo
+        <div>
           <div className='mySpinner' />
           <p>Loading...</p>
         </div>
@@ -109,10 +109,10 @@ export default class MainGame extends React.Component {
     }
     return (
       <div id='results'>
-        <div className='header'>
+        <div className='results-header'>
           <h1>Your Top 3 Results!</h1>
-          {this.showResults()}
         </div>
+        {this.showResults()}
       </div>
     );
   }

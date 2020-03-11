@@ -145,8 +145,8 @@ class App extends Component {
 
   render() {
     if (this.state.isAuthenticating) {
-      return (
-        <div className="loader">
+      return ( // todo
+        <div>
           <div className="mySpinner" />
           <p>Loading...</p>
         </div>
