@@ -10,6 +10,8 @@ import ForgotPasswordVerification from "./components/auth/ForgotPasswordVerifica
 import ChangePassword from "./components/auth/ChangePassword";
 import ChangePasswordConfirm from "./components/auth/ChangePasswordConfirm";
 import Welcome from "./components/auth/Welcome";
+import MainGame from "./components/game/MainGame";
+import Results from "./components/game/Results";
 import Footer from "./components/Footer";
 import Layout from "./components/Layout";
 import { Auth } from "aws-amplify";
@@ -100,6 +102,16 @@ class App extends Component {
           path="/welcome"
           render={props => <Welcome {...props} auth={authProps} />}
         />,
+        <Route
+          exact
+          path="/game"
+          render={props => <MainGame {...props} auth={authProps} />}
+        />,
+        <Route
+          exact
+          path="/results"
+          render={props => <Results {...props} auth={authProps} />}
+        />,
       ])
     } else {
       routes = routes.concat([ // only visible if not logged in
@@ -128,7 +140,7 @@ class App extends Component {
   get fallbackRoute() {
     if (this.state.isAuthenticated) return "/"; // home
     if (!this.state.isAuthenticated) return "/login";
-    return  "/login";
+    return "/login";
   }
 
   render() {

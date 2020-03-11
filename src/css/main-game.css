@@ -1,0 +1,27 @@
+#main-game {
+    margin-top: 50px;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+}
+
+.picture-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+
+
+/* img {
+    width: 200px;
+    height: 200px;
+} */
