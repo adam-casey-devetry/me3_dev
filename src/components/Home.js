@@ -1,12 +1,10 @@
 import React, { Fragment, useState, useEffect } from "react";
 import PhotoGrid from "./PhotoGrid";
-
 import { API, Auth } from "aws-amplify";
-
 import "../index.css";
 
 export default function Home(props) {
-  const [jwToken, setJWToken] = useState();
+  const [jwToken, setJWToken] = useState(null);
 
   async function getData() {
     let idToken = {
@@ -17,7 +15,6 @@ export default function Home(props) {
       }
     };
     setJWToken(idToken.headers.Authorization);
-    //return idToken;
   }
 
   useEffect(() => {
@@ -34,13 +31,15 @@ export default function Home(props) {
         }, // OPTIONAL
         response: true // OPTIONAL (return the entire Axios response object instead of only response.data)
       };
-      API.get(apiName, path, myInit)
-        .then(response => {
-          console.log("GET response: " + JSON.stringify(response.data));
-        })
-        .catch(error => {
-          console.log("Error: " + error);
-        });
+      if (jwToken !== null) {
+        API.get(apiName, path, myInit)
+          .then(response => {
+            console.log("GET response: " + JSON.stringify(response.data));
+          })
+          .catch(error => {
+            console.log("Error: " + error);
+          });
+      }
     } else {
       console.log("User is NOT authenticated");
     }
