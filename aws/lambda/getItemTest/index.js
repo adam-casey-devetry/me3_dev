@@ -1,6 +1,6 @@
 "use strict";
 const AWS = require("aws-sdk");
-const regionString = "us-east-2";
+const regionString = "us-west-2";
 
 AWS.config.update({ region: regionString });
 
@@ -8,7 +8,7 @@ AWS.config.update({ region: regionString });
 exports.handler = async (event, context) => {
   const ddb = new AWS.DynamoDB({ apiVersion: regionString });
   const documentClient = new AWS.DynamoDB.DocumentClient({
-    region: "us-east-2"
+    region: "us-west-2"
   });
 
   let responseBody = "";

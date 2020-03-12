@@ -6,6 +6,30 @@ import "../index.css";
 export default function Home(props) {
   const [jwToken, setJWToken] = useState(null);
 
+  async function postData() {
+    let apiName = "adamTestAPI_West";
+    let path = "/user";
+    let myInit = {
+      // OPTIONAL
+      body: {
+        id: "6",
+        firstName: "Teddy",
+        lastName: "Roosevelt"
+      }, // replace this with attributes you need
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        Authorization: jwToken
+      } // OPTIONAL
+    };
+    return await API.post(apiName, path, myInit)
+      .then(response => {
+        console.log("POST response: " + JSON.stringify(response.data));
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
   async function getData() {
     let idToken = {
       headers: {
@@ -22,7 +46,7 @@ export default function Home(props) {
       console.log("User is authenticated");
       getData().then(console.log("jwToken: " + jwToken));
       let apiName = "adamTestAPI_West";
-      let path = "/user/1";
+      let path = "/user/2";
       let myInit = {
         // OPTIONAL
         headers: {
@@ -31,6 +55,7 @@ export default function Home(props) {
         }, // OPTIONAL
         response: true // OPTIONAL (return the entire Axios response object instead of only response.data)
       };
+      // When component rerenders it will have JWToken needed for Authorization against the API Gateway
       if (jwToken !== null) {
         API.get(apiName, path, myInit)
           .then(response => {
@@ -39,6 +64,7 @@ export default function Home(props) {
           .catch(error => {
             console.log("Error: " + error);
           });
+        postData().then(console.log("New user added"));
       }
     } else {
       console.log("User is NOT authenticated");
