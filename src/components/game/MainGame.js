@@ -1,9 +1,12 @@
+//eslint-disable-next-line
 import React, { Component } from "react";
+//eslint-disable-next-line
 import axios from "axios";
+//eslint-disable-next-line
 import Amplify, { API } from "aws-amplify";
 import "../../css/main-game.css";
-import guitar from '../../ASU Photos/stubs/game_pics/guitar.png'; // todo: refactor with DB call
-import leadership from '../../ASU Photos/stubs/game_pics/leadership.png';
+import guitar from "../../ASU Photos/stubs/game_pics/guitar.png"; // todo: refactor with DB call
+import leadership from "../../ASU Photos/stubs/game_pics/leadership.png";
 
 const apiName = "adamTestAPI_West"; //todo: ENV variable?
 const myInit = {
@@ -17,9 +20,10 @@ export default class MainGame extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      pictures: [ //todo: refactor with game functionality
-        { 'img': guitar },
-        { 'img': leadership }
+      pictures: [
+        //todo: refactor with game functionality
+        { img: guitar },
+        { img: leadership }
       ],
       isLoading: true,
       results: {} // todo: populate with selections
@@ -29,7 +33,8 @@ export default class MainGame extends React.Component {
     this.saveResults = this.saveResults.bind(this);
   }
 
-  componentDidMount() { //refactor?
+  componentDidMount() {
+    //refactor?
     this.init();
   }
 
@@ -58,16 +63,17 @@ export default class MainGame extends React.Component {
     }
   }
 
-  makeChoices() { //todo: refactor with game functionality
+  makeChoices() {
+    //todo: refactor with game functionality
     const { pictures } = this.state;
     const src1 = pictures[0].img;
     const src2 = pictures[1].img;
     return (
-      <div className='picture-container'>
-        <img src={src1} alt='choice one' />
-        <img src={src2} alt='choice two' />
+      <div className="picture-container">
+        <img src={src1} alt="choice one" />
+        <img src={src2} alt="choice two" />
       </div>
-    )
+    );
   }
 
   saveResults() {
@@ -79,7 +85,8 @@ export default class MainGame extends React.Component {
         "Content-Type": "application/json"
       }, // OPTIONAL
       response: true, // OPTIONAL (return the entire Axios response object instead of only response.data)
-      body: { //todo: confirm this param, refactor with Aurora
+      body: {
+        //todo: confirm this param, refactor with Aurora
         results: results
       }
     };
@@ -94,27 +101,29 @@ export default class MainGame extends React.Component {
       });
   }
 
-  submitChoices() { // shorcut until game implemented
+  submitChoices() {
+    // shorcut until game implemented
     return (
       <div className="button-container">
-      <button className="submit" onClick={this.saveResults}>
-        <p>(See Results)</p>
-      </button>
+        <button className="submit" onClick={this.saveResults}>
+          <p>(See Results)</p>
+        </button>
       </div>
-    )
+    );
   }
 
   render() {
     if (this.state.isLoading) {
-      return ( // todo
+      return (
+        // todo
         <div>
-          <div className='mySpinner' />
+          <div className="mySpinner" />
           <p>Loading...</p>
         </div>
       );
     }
     return (
-      <div id='main-game'>
+      <div id="main-game">
         <div className="header">
           <h1>Select the image which appeals to you the most</h1>
         </div>
