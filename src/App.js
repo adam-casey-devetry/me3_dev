@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
@@ -10,6 +10,8 @@ import ForgotPasswordVerification from "./components/auth/ForgotPasswordVerifica
 import ChangePassword from "./components/auth/ChangePassword";
 import ChangePasswordConfirm from "./components/auth/ChangePasswordConfirm";
 import Welcome from "./components/auth/Welcome";
+import MainGame from "./components/game/MainGame";
+import Results from "./components/game/Results";
 import Footer from "./components/Footer";
 import Layout from "./components/Layout";
 import { Auth } from "aws-amplify";
@@ -54,84 +56,125 @@ class App extends Component {
     this.setState({ isAuthenticating: false });
   }
 
-  render() {
+  get routes() {
     const authProps = {
       isAuthenticated: this.state.isAuthenticated,
       user: this.state.user,
       setAuthStatus: this.setAuthStatus,
       setUser: this.setUser
     };
+    let routes = [ // default routes
+      <Route
+        exact
+        path="/forgotpasswordverification"
+        render={props => (
+          <ForgotPasswordVerification
+            {...props}
+            auth={authProps}
+          />
+        )}
+      />,
+      <Route
+        exact
+        path="/changepasswordconfirmation"
+        render={props => (
+          <ChangePasswordConfirm {...props} auth={authProps} />
+        )}
+      />
+    ];
 
-    // Use special render syntax to pass properties to each component
+    if (authProps.isAuthenticated) { // only visible if logged in
+      routes = routes.concat([
+        <Route
+          exact
+          path="/"
+          render={props => <Home {...props} auth={authProps} />}
+        />,
+        <Route
+          exact
+          path="/changepassword"
+          render={props => (
+            <ChangePassword {...props} auth={authProps} />
+          )}
+        />,
+        <Route
+          exact
+          path="/welcome"
+          render={props => <Welcome {...props} auth={authProps} />}
+        />,
+        <Route
+          exact
+          path="/game"
+          render={props => <MainGame {...props} auth={authProps} />}
+        />,
+        <Route
+          exact
+          path="/results"
+          render={props => <Results {...props} auth={authProps} />}
+        />,
+      ])
+    } else {
+      routes = routes.concat([ // only visible if not logged in
+        <Route
+          exact
+          path="/login"
+          render={props => <LogIn {...props} auth={authProps} />}
+        />,
+        <Route
+          exact
+          path="/register"
+          render={props => <Register {...props} auth={authProps} />}
+        />,
+        <Route
+          exact
+          path="/forgotpassword"
+          render={props => (
+            <ForgotPassword {...props} auth={authProps} />
+          )}
+        />,
+      ])
+    };
+    return routes;
+  }
+
+  get fallbackRoute() {
+    if (this.state.isAuthenticated) return "/"; // home
+    if (!this.state.isAuthenticated) return "/login";
+    return "/login";
+  }
+
+  render() {
+    if (this.state.isAuthenticating) {
+      return ( // todo
+        <div>
+          <div className="mySpinner" />
+          <p>Loading...</p>
+        </div>
+      );
+    }
+    const authProps = { // todo: consolidate
+      isAuthenticated: this.state.isAuthenticated,
+      user: this.state.user,
+      setAuthStatus: this.setAuthStatus,
+      setUser: this.setUser
+    };
     return (
-      !this.state.isAuthenticating && (
-        <Fragment>
-          <div className="App">
-            <Router>
-              <div>
-                <Navbar auth={authProps} />
-                <Layout>
-                  <Switch>
-                    {/* Pass in default props along with user created props */}
-                    <Route
-                      exact
-                      path="/"
-                      render={props => <Home {...props} auth={authProps} />}
-                    />
-                    <Route
-                      exact
-                      path="/login"
-                      render={props => <LogIn {...props} auth={authProps} />}
-                    />
-                    <Route
-                      exact
-                      path="/register"
-                      render={props => <Register {...props} auth={authProps} />}
-                    />
-                    <Route
-                      exact
-                      path="/forgotpassword"
-                      render={props => (
-                        <ForgotPassword {...props} auth={authProps} />
-                      )}
-                    />
-                    <Route
-                      exact
-                      path="/forgotpasswordverification"
-                      render={props => (
-                        <ForgotPasswordVerification
-                          {...props}
-                          auth={authProps}
-                        />
-                      )}
-                    />
-                    <Route
-                      exact
-                      path="/changepassword"
-                      render={props => (
-                        <ChangePassword {...props} auth={authProps} />
-                      )}
-                    />
-                    <Route
-                      exact
-                      path="/changepasswordconfirmation"
-                      render={props => (
-                        <ChangePasswordConfirm {...props} auth={authProps} />
-                      )}
-                    />
-                    <Route
-                      exact
-                      path="/welcome"
-                      render={props => <Welcome {...props} auth={authProps} />}
-                    />
-                  </Switch>
-                </Layout>
-                <Footer />
-              </div>
-            </Router>
-          </div>
-        </Fragment>
-      )
+      <Fragment>
+        <div className="App">
+          <Router>
+            <div>
+              <Navbar auth={authProps} />
+              <Layout>
+                <Switch>
+                  {this.routes.map(r => Object.assign({}, r, { key: r.props.path }))}
+                  <Route render={() => <Redirect to={this.fallbackRoute} />} />
+                </Switch>
+              </Layout>
+              <Footer />
+            </div>
+          </Router>
+        </div>
+      </Fragment>
     );
   }
 }

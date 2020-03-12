@@ -1,0 +1,19 @@
+#results {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.career-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-evenly;
+    width: 90%;
+}
+
+.results-header {
+    display: flex;
+    justify-content: center;
+}
